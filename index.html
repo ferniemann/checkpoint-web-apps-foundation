@@ -20,16 +20,18 @@
     </header>
     <main>
         <section class="input-fields">
-            <input type="password" name="password-a" id="password-a">
-            <input type="password" name="password-b" id="password-b">
-            <button class="show-hide-pw" id="show-hide-pw">Show Password</button>
+            <div id="inputs">
+                <input type="password" name="password-a" id="password-a" onkeyup="this.onchange();">
+                <input type="password" name="password-b" id="password-b" onkeyup="this.onchange();">
+            </div>
+            <button class=" show-hide-pw" id="show-hide-pw">Show Password</button>
         </section>
         <section class="checks">
-            <p class="equal" id="equal">Passwords are equal</p>
-            <p class="lower" id="lower">Lower Case Letters</p>
-            <p class="upper" id="upper">Upper Case Letters</p>
-            <p class="numbs" id="numbs">Contains Numbers</p>
-            <p class="pw-length" id="pw-length">At least 10 characters long</p>
+            <p class="equal">Passwords are equal <span id="equal">❌</span></p>
+            <p class="lower">Lower Case Letters <span id="lower">❌</span></p>
+            <p class="upper">Upper Case Letters<span id="upper">❌</span></p>
+            <p class="numbs">Contains Numbers<span id="numbs">❌</span></p>
+            <p class="pw-length">At least 10 characters long<span id="pw-length">❌</span></p>
         </section>
     </main>
 
