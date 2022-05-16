@@ -4,48 +4,59 @@ const btn = document.querySelector("#show-hide-pw");
 const eventInputs = document.querySelector("#inputs");
 
 btn.addEventListener("click", () => {
-  if (passwordA.type === "password") {
-    passwordA.type = "text";
-    passwordB.type = "text";
-    btn.innerText = "Hide Password";
-  } else {
-    passwordA.type = "password";
-    passwordA.type = "password";
-    btn.innerText = "Show Password";
-  }
+    if (passwordA.type === "password") {
+        passwordA.type = "text";
+        passwordB.type = "text";
+        btn.innerText = "Hide Password";
+    } else {
+        passwordA.type = "password";
+        passwordB.type = "password";
+        btn.innerText = "Show Password";
+    }
 });
 
-eventInputs.addEventListener("input", () => {
-  const pwEqual = document.querySelector("#equal");
-  const lower = document.querySelector("#lower");
-  const upper = document.querySelector("#upper");
-  const numbs = document.querySelector("#numbs");
-  const pwLength = document.querySelector("#pw-length");
-  const testLower = /[a-z]/;
-  const testUpper = /[A-Z]/;
-  const testNumber = /\d/;
-  if (passwordA.value === passwordB.value) {
-    pwEqual.innerText = "✅";
-    if (testLower.test(passwordA.value)) {
-      lower.innerText = "✅";
+eventInputs.addEventListener("input", checkPasswords);
+
+function checkPasswords() {
+    if (checkEqual()) {
+        checkCharacter("a-z", "lower");
+        checkCharacter("A-Z", "upper");
+        checkCharacter("0-9", "numbs");
+        checkLength();
+    } else {
+        const checks = document.querySelectorAll(".check");
+
+        checks.forEach((check) => (check.innerText = "❌"));
     }
-    if (testUpper.test(passwordA.value)) {
-      upper.innerText = "✅";
+}
+
+function checkEqual() {
+    const pwEqual = document.querySelector("#equal");
+
+    if (passwordA.value === passwordB.value && passwordA.value.length > 0) {
+        pwEqual.innerText = "✅";
+        return true;
+    } else {
+        return false;
     }
-    if (testNumber.test(passwordA.value)) {
-      numbs.innerText = "✅";
+}
+
+function checkCharacter(regex, area) {
+    const characters = new RegExp(`[${regex}]`);
+    const check = document.querySelector(`#${area}`);
+
+    if (characters.test(passwordA.value)) {
+        check.innerText = "✅";
     }
+}
+
+function checkLength() {
+    const pwLength = document.querySelector("#pw-length");
+
     if (passwordA.value.length > 9) {
-      pwLength.innerText = "✅";
+        pwLength.innerText = "✅";
     }
-  } else {
-    pwEqual.innerText = "❌";
-    lower.innerText = "❌";
-    upper.innerText = "❌";
-    numbs.innerText = "❌";
-    pwLength.innerText = "❌";
-  }
-});
+}
 
 //✅
 //❌

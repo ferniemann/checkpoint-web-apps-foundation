@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <title>Checkpoint Web-Apps Foundation - Password Check</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Checkpoint Web-Apps Foundation - Password Check</title>
-</head>
+    <body>
+        <header>
+            <h1>Password Check</h1>
+        </header>
+        <main>
+            <section class="input-fields">
+                <div id="inputs">
+                    <input type="password" name="password-a" id="password-a" />
+                    <input type="password" name="password-b" id="password-b" />
+                </div>
+                <button class="show-hide-pw" id="show-hide-pw">Show Password</button>
+            </section>
+            <section class="checks">
+                <p class="equal">Passwords are equal <span class="check" id="equal">❌</span></p>
+                <p class="lower">Lower Case Letters <span class="check" id="lower">❌</span></p>
+                <p class="upper">Upper Case Letters<span class="check" id="upper">❌</span></p>
+                <p class="numbs">Contains Numbers<span class="check" id="numbs">❌</span></p>
+                <p class="pw-length">
+                    At least 10 characters long<span class="check" id="pw-length">❌</span>
+                </p>
+            </section>
+        </main>
 
-<body>
-    <header>
-        <h1>Password Check</h1>
-    </header>
-    <main>
-        <section class="input-fields">
-            <div id="inputs">
-                <input type="password" name="password-a" id="password-a" onkeyup="this.onchange();">
-                <input type="password" name="password-b" id="password-b" onkeyup="this.onchange();">
-            </div>
-            <button class=" show-hide-pw" id="show-hide-pw">Show Password</button>
-        </section>
-        <section class="checks">
-            <p class="equal">Passwords are equal <span id="equal">❌</span></p>
-            <p class="lower">Lower Case Letters <span id="lower">❌</span></p>
-            <p class="upper">Upper Case Letters<span id="upper">❌</span></p>
-            <p class="numbs">Contains Numbers<span id="numbs">❌</span></p>
-            <p class="pw-length">At least 10 characters long<span id="pw-length">❌</span></p>
-        </section>
-    </main>
-
-    <script src="assets/js/script.js"></script>
-</body>
-
+        <script src="assets/js/script.js"></script>
+    </body>
 </html>
